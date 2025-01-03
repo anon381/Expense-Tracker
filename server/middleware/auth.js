@@ -1,4 +1,3 @@
-// JWT auth middleware: expects Authorization: Bearer <token> header.
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change';
