@@ -10,12 +10,13 @@
   "preview": "vite preview",
   "lint": "eslint . --ext .js,.jsx --max-warnings 0",
   "server": "node server/index.js",
-  "server:dev": "nodemon server/index.js",
+  "server:dev": "nodemon --config nodemon.json server/index.js",
   "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\""
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+  "react-router-dom": "^6.23.0",
     "express": "^4.19.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
