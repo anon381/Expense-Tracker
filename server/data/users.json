@@ -1,3 +1,26 @@
 [
-	{ "_comment": "Users list (comment entry ignored by loader)." }
+  {
+    "id": "09e56cc7-f202-4741-97f5-8e66226a9b6f",
+    "username": "anon",
+    "passwordHash": "$2a$10$HRz3hepymBRzSRnPOPaGZ.nfgbZKq70HX9RoVKh0fAsbUS5bNE/56",
+    "createdAt": "2025-08-14T04:02:42.198Z"
+  },
+  {
+    "id": "e30b49a2-5eb9-42ae-8f64-5d7cdfda3ee9",
+    "username": "anonn",
+    "passwordHash": "$2a$10$0o7Gh9WBT114gr4jPgbxOuvLAeQT1eimoTyjVd/3tl6ZwPeBVtwx.",
+    "createdAt": "2025-08-14T04:02:54.366Z"
+  },
+  {
+    "id": "18b46534-23a2-4c0e-b264-1fe42f37c95c",
+    "username": "yabetss",
+    "passwordHash": "$2a$10$RlWEzEO3yGujV8u.pmvnq.IuDa9gHkCBCgcZmWRpC71ADCnUJ.12G",
+    "createdAt": "2025-08-14T04:03:06.981Z"
+  },
+  {
+    "id": "78023ec6-a6ec-488c-9471-3d55ae24e08b",
+    "username": "yab",
+    "passwordHash": "$2a$10$96W9.cbnmsSefReIKj6nYOk92Z8c.ReNFwKRv3XdPlTuGTwzkTmmO",
+    "createdAt": "2025-08-14T04:12:27.695Z"
+  }
 ]
