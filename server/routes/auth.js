@@ -18,6 +18,7 @@ router.post('/register', async (req, res) => {
   if (existing) return res.status(409).json({ error: 'username taken' });
   const hash = await bcrypt.hash(password, 10);
   const user = createUser({ username, passwordHash: hash });
+  console.log('[AUTH] registered', username, user.id);
   const token = jwt.sign({ sub: user.id, username }, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
   res.status(201).json({ token, user: { id: user.id, username } });
 });
@@ -26,9 +27,10 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body || {};
   if (!username || !password) return res.status(400).json({ error: 'username and password required' });
   const user = findUserByUsername(username);
-  if (!user) return res.status(401).json({ error: 'invalid credentials' });
+  if (!user) { console.log('[AUTH] login fail no user', username); return res.status(401).json({ error: 'invalid credentials' }); }
   const ok = await bcrypt.compare(password, user.passwordHash);
-  if (!ok) return res.status(401).json({ error: 'invalid credentials' });
+  if (!ok) { console.log('[AUTH] login fail bad password', username); return res.status(401).json({ error: 'invalid credentials' }); }
+  console.log('[AUTH] login success', username, user.id);
   const token = jwt.sign({ sub: user.id, username }, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
   res.json({ token, user: { id: user.id, username } });
 });
