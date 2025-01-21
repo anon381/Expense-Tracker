@@ -1,5 +1,5 @@
 /* Added root color var for future theming */
-:root { --page-bg: #f5f6fa; }
+:root { --page-bg: #f5f6fa; --font-stack: system-ui, Arial, sans-serif; }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, Arial, sans-serif; background: var(--page-bg); }
+body { margin: 0; font-family: var(--font-stack); background: var(--page-bg); color:#111; }
 h1 { margin-top: 0; }
