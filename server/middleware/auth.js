@@ -10,9 +10,13 @@ export function requireAuth(req, res, next) {
   try {
     const payload = jwt.verify(token, JWT_SECRET);
     req.user = { id: payload.sub, username: payload.username };
-    next();
+    return next();
   } catch (e) {
-  console.warn('Invalid token', e?.message);
-  return res.status(401).json({ error: 'invalid token' });
+    if (e?.name === 'TokenExpiredError') {
+      console.warn('Expired token');
+      return res.status(401).json({ error: 'token expired', code: 'TOKEN_EXPIRED' });
+    }
+    console.warn('Invalid token', e?.message);
+    return res.status(401).json({ error: 'invalid token', code: 'TOKEN_INVALID' });
   }
 }
