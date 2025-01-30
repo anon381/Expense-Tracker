@@ -10,8 +10,15 @@ async function request(path, { method='GET', token, body } = {}) {
     throw new Error('Network error: ' + netErr.message);
   }
   if (!res.ok) {
-    let err; try { err = await res.json(); } catch { err = { error: res.status + ' ' + res.statusText }; }
-    throw new Error(err.error || 'Request failed');
+    let errObj; try { errObj = await res.json(); } catch { errObj = { error: res.status + ' ' + res.statusText }; }
+    const message = errObj.error || 'Request failed';
+    const error = new Error(message);
+    if (errObj.code) error.code = errObj.code;
+    // Broadcast auth-specific events so app can react globally.
+    if (error.code === 'TOKEN_EXPIRED' || error.code === 'TOKEN_INVALID') {
+      window.dispatchEvent(new CustomEvent('auth-token-problem', { detail: { code: error.code, message } }));
+    }
+    throw error;
   }
   try { return await res.json(); } catch { return null; }
 }
@@ -19,6 +26,8 @@ async function request(path, { method='GET', token, body } = {}) {
 export const api = {
   register: (u,p) => request('/auth/register',{method:'POST', body:{username:u,password:p}}),
   login: (u,p) => request('/auth/login',{method:'POST', body:{username:u,password:p}}),
+  refresh: (refreshToken) => request('/auth/refresh', { method:'POST', body:{ refreshToken } }),
+  me: (token) => request('/auth/me', { token }),
   listTransactions: (token, query={}) => {
     const qs = new URLSearchParams(query).toString();
     return request(`/transactions${qs?`?${qs}`:''}`, { token });
