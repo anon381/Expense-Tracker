@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../authContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export function AuthForm() {
   const { login, register, loading, error } = useAuth();
+  const navigate = useNavigate();
   const [mode, setMode] = useState('login');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +14,9 @@ export function AuthForm() {
     e.preventDefault();
     setLocalError(null);
     try {
-      if (mode === 'login') await login(username, password); else await register(username, password);
+  if (mode === 'login') await login(username, password); else await register(username, password);
+  // Force navigation after successful auth to ensure fresh state / stop stale token use.
+  navigate('/', { replace: true });
     } catch (e) { setLocalError(e.message); }
   }
 
