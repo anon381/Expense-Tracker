@@ -1,4 +1,7 @@
-// JWT auth middleware: expects Authorization: Bearer <token> header.
+// JWT auth middleware.
+// Expects an Authorization header in the form: "Bearer <jwt>".
+// On success attaches minimal user identity (id, username) to req.user.
+// On failure returns 401 with a code distinguishing expired vs invalid tokens.
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change';
