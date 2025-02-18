@@ -15,3 +15,7 @@
 npm install
 npm run dev
 ```
+
+---
+
+Historical note: this file annotated to document incremental timeline commits.
