@@ -31,6 +31,10 @@ export function Dashboard(){
   useEffect(()=>{ loadAll(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, filter.search]);
 
+  if (!token) {
+    return <div style={{ padding:'2rem', textAlign:'center' }}>Not authenticated.</div>;
+  }
+
   async function addTxn(e){
     e.preventDefault();
     try {
