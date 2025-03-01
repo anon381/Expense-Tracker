@@ -22,5 +22,11 @@
     "username": "yab",
     "passwordHash": "$2a$10$96W9.cbnmsSefReIKj6nYOk92Z8c.ReNFwKRv3XdPlTuGTwzkTmmO",
     "createdAt": "2025-08-14T04:12:27.695Z"
+  },
+  {
+    "id": "ede73f29-a3e7-40ac-bc79-4c2de3f37688",
+    "username": "anonized",
+    "passwordHash": "$2a$10$/44RUlDZQcql.BbYMivDjOvTCieH3cSOeRr24qk4e4iEtTEfl0MyG",
+    "createdAt": "2025-08-15T11:11:20.079Z"
   }
 ]
