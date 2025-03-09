@@ -1,3 +1,50 @@
 [
-	{ "_comment": "Transactions list (comment updated for historical commit)." }
+  {
+    "id": "900f5d28-592d-4156-bde9-883188a34abf",
+    "userId": "09e56cc7-f202-4741-97f5-8e66226a9b6f",
+    "createdAt": "2025-08-15T11:10:51.407Z",
+    "updatedAt": "2025-08-15T11:10:51.407Z",
+    "type": "expense",
+    "amountMinor": 100000,
+    "currency": "USD",
+    "category": "Food",
+    "description": "burger and drink",
+    "date": "2025-08-15T00:00:00.000Z"
+  },
+  {
+    "id": "f2270915-9dc6-4ce8-9ed5-4b6e21471289",
+    "userId": "09e56cc7-f202-4741-97f5-8e66226a9b6f",
+    "createdAt": "2025-08-15T11:11:00.118Z",
+    "updatedAt": "2025-08-15T11:11:00.118Z",
+    "type": "income",
+    "amountMinor": 200000,
+    "currency": "USD",
+    "category": "Food",
+    "description": "",
+    "date": "2025-08-15T00:00:00.000Z"
+  },
+  {
+    "id": "c717b03e-deee-498c-ada2-13570d1fda5e",
+    "userId": "ede73f29-a3e7-40ac-bc79-4c2de3f37688",
+    "createdAt": "2025-08-15T11:11:34.022Z",
+    "updatedAt": "2025-08-15T11:11:34.022Z",
+    "type": "income",
+    "amountMinor": 100000,
+    "currency": "USD",
+    "category": "Uncategorized",
+    "description": "",
+    "date": "2025-08-15T00:00:00.000Z"
+  },
+  {
+    "id": "eb4d0d1d-a8df-4c3d-97cc-11f5f3ac57cc",
+    "userId": "ede73f29-a3e7-40ac-bc79-4c2de3f37688",
+    "createdAt": "2025-08-15T11:11:59.198Z",
+    "updatedAt": "2025-08-15T11:11:59.198Z",
+    "type": "expense",
+    "amountMinor": 60000,
+    "currency": "USD",
+    "category": "Food",
+    "description": "burger",
+    "date": "2025-08-15T00:00:00.000Z"
+  }
 ]
