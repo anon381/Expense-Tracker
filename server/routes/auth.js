@@ -1,4 +1,14 @@
-// Auth routes: register & login issuing JWT tokens (demo grade only).
+// Authentication / session routes.
+// Provides:
+//  - POST /register : create user and issue access + refresh tokens
+//  - POST /login    : authenticate and issue token pair
+//  - GET  /me       : validate access token, return user identity
+//  - POST /refresh  : rotate refresh token and mint new access token
+//  - POST /logout   : revoke a refresh token (best-effort)
+// Implementation notes:
+//  * Tokens are short-lived JWT access tokens + file-backed opaque refresh tokens.
+//  * For simplicity refresh tokens are stored in JSON; rotation ensures single-use.
+//  * Error responses are intentionally minimal; production systems would tighten.
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
