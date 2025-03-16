@@ -1,5 +1,8 @@
 // User store: simple file-backed user registry (NOT for production use).
-// Ignores any objects with a _comment field so we can embed documentation inside users.json.
+// Design goals:
+//  * Keep synchronous disk I/O isolated & batched (write debounce via writePending flag).
+//  * Allow embedding documentation entries in users.json (filtered by _comment key).
+//  * Provide minimal helpers used by auth layer (create, find by username/id, reset).
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
