@@ -1,4 +1,12 @@
-// Transactions API routes: protected by JWT; supports CRUD, filtering & summary.
+// Transactions API routes.
+// All endpoints require a valid access token (router.use(requireAuth)).
+// Capabilities:
+//   GET    /          : list transactions with optional filtering (date range, category, type, search)
+//   POST   /          : create a transaction (amount can be string or number)
+//   PUT    /:id       : partial update (supports changing amount/date/type/category/description)
+//   DELETE /:id       : remove a transaction
+//   GET    /summary/monthly : aggregated net for current month (UTC)
+//   GET    /categories      : list category metadata
 import { Router } from 'express';
 import { requireAuth } from '../middleware/auth.js';
 import { initTransactionStore, listTransactions, createTransaction, updateTransaction, deleteTransaction } from '../store/transactionStore.js';
