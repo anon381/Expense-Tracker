@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useAuth } from '../authContext.jsx';
 import { api } from '../api.js';
-
+// This component displays the user's dashboard with transaction management features.
 export function Dashboard(){
   const { token, user, logout } = useAuth();
   const [txns, setTxns] = useState([]);
