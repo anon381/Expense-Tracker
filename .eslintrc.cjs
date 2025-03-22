@@ -9,6 +9,7 @@ module.exports = {
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: {},
   rules: {
+    // Allow intentionally unused args prefixed with _ to signal ignored parameters.
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }]
   }
 };
