@@ -1,3 +1,7 @@
+// Refresh token store
+// Maintains opaque single-use refresh tokens in a JSON file.
+// Rotation strategy: on refresh, old token is removed and a new one issued.
+// TTL configurable with REFRESH_TOKEN_DAYS; expired tokens are lazily cleaned.
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
