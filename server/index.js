@@ -85,3 +85,5 @@ process.on('unhandledRejection', (reason) => {
 process.on('uncaughtException', (err) => {
   console.error('UncaughtException:', err);
 });
+
+// EOF note: kept for commit granularity; no runtime impact.
