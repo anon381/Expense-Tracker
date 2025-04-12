@@ -1,4 +1,4 @@
-// Express server bootstrap: wires middleware, routes, and error handling.
+// Server entry
 import './loadEnv.js';
 import express from 'express';
 import cors from 'cors';
@@ -86,4 +86,3 @@ process.on('uncaughtException', (err) => {
   console.error('UncaughtException:', err);
 });
 
-// EOF note: kept for commit granularity; no runtime impact.
