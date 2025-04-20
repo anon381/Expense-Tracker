@@ -1,8 +1,4 @@
-// Category store: seeds default categories and persists to JSON.
-// Behavior summary:
-//  * Seeds defaults when file absent or empty.
-//  * Filters out any objects containing _comment to allow inline docs.
-//  * Exposes basic CRUD-style helpers (list/add/delete/get) used by transactions.
+// Category store
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
