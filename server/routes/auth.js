@@ -13,6 +13,7 @@ const TOKEN_EXPIRY = '2h';
 router.post('/register', async (req, res) => {
   const { username, password } = req.body || {};
   if (!username || !password) return res.status(400).json({ error: 'username and password required' });
+  if (password.length < 4) return res.status(400).json({ error: 'password too short' });
   const existing = findUserByUsername(username);
   if (existing) return res.status(409).json({ error: 'username taken' });
   const hash = await bcrypt.hash(password, 10);
