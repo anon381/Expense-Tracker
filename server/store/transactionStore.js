@@ -1,9 +1,3 @@
-// Transaction store: file-backed in-memory list with lightweight filtering & CRUD.
-// Notes:
-//  * Lazy initialization (initTransactionStore) so import order is flexible.
-//  * Debounced writes coalesce rapid mutations.
-//  * Filters support start/end ISO date string boundaries and simple description search.
-//  * _comment entries in JSON are ignored to allow annotated fixtures.
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
