@@ -1,5 +1,4 @@
 // Auth routes: register & login issuing JWT tokens (demo grade only).
-// Added note: do NOT use this simplistic auth flow in production.
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
