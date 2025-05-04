@@ -1,6 +1,4 @@
 // Express server bootstrap: wires middleware, routes, and error handling.
-// Added note: diagnostics & self-test kept for local debugging.
-// Commit marker: additional doc line for Feb 25 backdated commit.
 import './loadEnv.js';
 import express from 'express';
 import cors from 'cors';
