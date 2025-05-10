@@ -1,10 +1,4 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-// Auth context: manages access + refresh tokens.
-// Responsibilities:
-//   - Persist tokens & user to localStorage.
-//   - Provide login/register/logout helpers.
-//   - Auto-validate token on mount and attempt seamless refresh.
-//   - Listen for global auth error events and trigger refresh or logout.
 import { api } from './api.js';
 
 const AuthContext = createContext(null);
