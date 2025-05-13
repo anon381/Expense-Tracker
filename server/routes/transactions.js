@@ -27,6 +27,7 @@ router.post('/', (req, res) => {
   if (!['expense','income'].includes(type)) return res.status(400).json({ error: 'invalid type' });
   if (amount == null) return res.status(400).json({ error: 'amount required' });
   const minor = parseAmountToMinor(amount);
+  if (Number.isNaN(minor)) return res.status(400).json({ error: 'amount invalid' });
   const when = date ? new Date(date).toISOString() : new Date().toISOString();
   const cat = category || 'Uncategorized';
   const txn = createTransaction(req.user.id, { type, amountMinor: minor, currency, category: cat, description, date: when });
