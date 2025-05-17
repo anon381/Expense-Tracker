@@ -62,3 +62,7 @@ export function findUserByUsername(username) {
 }
 
 export function resetAll() { users = []; persist(); }
+
+export function findUserById(id) {
+  return users.find(u => u.id === id) || null;
+}
