@@ -1,3 +1,4 @@
+// Refresh token store: create, rotate, revoke opaque refresh tokens (JSON file persistence)
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
