@@ -1,3 +1,4 @@
+// Transaction store: file-backed list with filters & CRUD helpers
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
