@@ -1,5 +1,3 @@
-// User store: simple file-backed user registry (NOT for production use).
-// Ignores any objects with a _comment field so we can embed documentation inside users.json.
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
@@ -31,7 +29,7 @@ function loadFromDisk() {
 }
 
 function persist() {
-  if (writePending) return; // coalesce multiple quick writes
+  if (writePending) return;
   writePending = true;
   setTimeout(() => {
     try {
