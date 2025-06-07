@@ -1,3 +1,4 @@
+// Express server bootstrap: wires middleware, routes, and error handling.
 import './loadEnv.js';
 import express from 'express';
 import cors from 'cors';
