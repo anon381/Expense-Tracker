@@ -1,3 +1,4 @@
+// Auth routes: register & login issuing JWT tokens (demo-grade only).
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
