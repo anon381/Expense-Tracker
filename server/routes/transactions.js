@@ -1,3 +1,4 @@
+// Transactions API routes: protected by JWT; supports CRUD, filtering & summary.
 import { Router } from 'express';
 import { requireAuth } from '../middleware/auth.js';
 import { initTransactionStore, listTransactions, createTransaction, updateTransaction, deleteTransaction } from '../store/transactionStore.js';
