@@ -1,3 +1,5 @@
+// Category store: seeds default categories and persists to JSON.
+// Will ignore any array entries that only exist for documentation (_comment objects).
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -22,8 +24,9 @@ const DEFAULTS = [
 function load() {
   if (!existsSync(DATA_FILE)) { categories = DEFAULTS.map(c => ({ id: randomUUID(), ...c })); persist(); return; }
   try {
-    categories = JSON.parse(readFileSync(DATA_FILE, 'utf8'));
+  categories = JSON.parse(readFileSync(DATA_FILE, 'utf8'));
     if (!Array.isArray(categories)) throw new Error('bad');
+  categories = categories.filter(c => !c?._comment);
     if (categories.length === 0) { // seed if empty
       categories = DEFAULTS.map(c => ({ id: randomUUID(), ...c }));
       persist();
