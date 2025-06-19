@@ -67,3 +67,7 @@ export function deleteTransaction(userId, id) {
   if (transactions.length !== before) persist();
   return before !== transactions.length;
 }
+
+export function getTransaction(userId, id) {
+  return transactions.find(t => t.userId === userId && t.id === id) || null;
+}
