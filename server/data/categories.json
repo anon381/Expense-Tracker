@@ -1,0 +1,32 @@
+[
+  {
+    "id": "5113d39f-c96a-4ec1-bd87-d26ddd328e68",
+    "name": "Food",
+    "type": "expense",
+    "color": "#ff7f50"
+  },
+  {
+    "id": "abe95658-f3aa-436e-af4f-a0f30338baed",
+    "name": "Rent",
+    "type": "expense",
+    "color": "#ffa500"
+  },
+  {
+    "id": "221ec536-52b8-4395-b24f-50d3684c8866",
+    "name": "Transport",
+    "type": "expense",
+    "color": "#1e90ff"
+  },
+  {
+    "id": "585e459a-8c79-4c4e-b1a9-d01449949fd9",
+    "name": "Entertainment",
+    "type": "expense",
+    "color": "#8a2be2"
+  },
+  {
+    "id": "29880903-3c5c-4cd7-aa54-d6fcc3b599f9",
+    "name": "Salary",
+    "type": "income",
+    "color": "#2e8b57"
+  }
+]
