@@ -1,3 +1,5 @@
+// Transaction store: file-backed in-memory list with lightweight filtering & CRUD.
+// Added support to ignore special objects containing a _comment field in the JSON array.
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
@@ -13,7 +15,10 @@ let writePending = false;
 
 function load() {
   if (!existsSync(DATA_FILE)) { persist(); return; }
-  try { transactions = JSON.parse(readFileSync(DATA_FILE, 'utf8')); } catch { transactions = []; }
+  try {
+    const parsed = JSON.parse(readFileSync(DATA_FILE, 'utf8'));
+    transactions = Array.isArray(parsed) ? parsed.filter(t => !t?._comment) : [];
+  } catch { transactions = []; }
 }
 
 function persist() {
