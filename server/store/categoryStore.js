@@ -47,3 +47,4 @@ export function initCategoryStore(){ if(!initialized){ load(); initialized=true;
 export function listCategories(){ return categories.slice(); }
 export function addCategory(data){ const cat = { id: randomUUID(), ...data }; categories.push(cat); persist(); return cat; }
 export function deleteCategory(id){ const before=categories.length; categories=categories.filter(c=>c.id!==id); if(before!==categories.length) persist(); return before!==categories.length; }
+export function getCategoryById(id){ return categories.find(c=>c.id===id) || null; }
