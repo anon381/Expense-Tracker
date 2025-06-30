@@ -13,6 +13,7 @@ initTransactionStore();
 const PORT = process.env.PORT || 4000;
 const HOST = '0.0.0.0';
 
+// CORS: supports comma-separated origins; '*' fallback for simplicity (dev only).
 app.use(cors({ origin: process.env.CORS_ORIGIN?.split(',') || '*'}));
 app.use(express.json());
 app.use((req, _res, next) => {
