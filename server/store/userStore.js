@@ -1,3 +1,5 @@
+// User store: simple file-backed user registry (NOT for production use).
+// Ignores any objects with a _comment field so we can embed documentation inside users.json.
 import { randomUUID } from 'crypto';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
@@ -19,7 +21,9 @@ function loadFromDisk() {
   }
   try {
     const raw = readFileSync(DATA_FILE, 'utf8');
-    users = JSON.parse(raw);
+  users = JSON.parse(raw);
+  if (!Array.isArray(users)) users = [];
+  users = users.filter(u => !u?._comment);
   } catch (e) {
     console.error('Failed to read users.json, starting empty', e);
     users = [];
