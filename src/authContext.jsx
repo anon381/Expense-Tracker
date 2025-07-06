@@ -1,3 +1,4 @@
+// Auth context: manages tokens, user state, refresh & logout
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { api } from './api.js';
 
