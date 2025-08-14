@@ -1,6 +1,6 @@
 # expense tracker (React starter)
 
-Generic React + Vite scaffold. No domain-specific logic included.
+---
 
 ## Scripts
 
