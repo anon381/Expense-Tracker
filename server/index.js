@@ -45,7 +45,7 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
-// Root quick probe
+// Root quick-probe
 app.get('/', (_req, res) => res.send('OK'));
 
 // Dev-only reset (not for production)
