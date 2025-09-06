@@ -45,7 +45,6 @@ export function AuthProvider({ children }) {
     function handler(e){
       const code = e.detail?.code;
       if (code === 'TOKEN_EXPIRED') {
-        // attempt refresh if possible
         if (refreshToken) {
           api.refresh(refreshToken).then(r => {
             setToken(r.token); setRefreshToken(r.refreshToken);
