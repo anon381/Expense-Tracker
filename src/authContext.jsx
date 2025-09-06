@@ -61,7 +61,6 @@ export function AuthProvider({ children }) {
     return () => window.removeEventListener('auth-token-problem', handler);
   }, [logout, refreshToken]);
 
-  // Validate existing token on first mount (silent logout if invalid/expired)
   useEffect(()=>{
     let cancelled = false;
     (async ()=>{
