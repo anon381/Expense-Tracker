@@ -14,7 +14,6 @@ async function request(path, { method='GET', token, body } = {}) {
     const message = errObj.error || 'Request failed';
     const error = new Error(message);
     if (errObj.code) error.code = errObj.code;
-    // Broadcast auth-specific events so app can react globally.
     if (error.code === 'TOKEN_EXPIRED' || error.code === 'TOKEN_INVALID') {
       window.dispatchEvent(new CustomEvent('auth-token-problem', { detail: { code: error.code, message } }));
     }
